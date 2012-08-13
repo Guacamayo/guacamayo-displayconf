@@ -172,7 +172,6 @@ main (int argc, char **argv)
 
   if (!modes)
     {
-      XRRFreeOutputInfo (output);
       g_warning ("No usable modes detected!\n");
       goto done;
     }
