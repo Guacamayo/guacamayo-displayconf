@@ -1,0 +1,3 @@
+A simple utility for automatic configuration of X11 display; based on the 
+original displayconf utility from MediaExplorer, but rewritten to avoid 
+dependency on libgnome-desktop.
