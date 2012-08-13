@@ -108,6 +108,8 @@ main (int argc, char **argv)
   XRRCrtcInfo        *ci         = NULL;
   RRMode              mode;
   GList              *modes      = NULL;
+  GList              *modes_w    = NULL;
+  GList              *modes_n    = NULL;
   int                 i, j;
   int                 retval = 1;
 
@@ -167,8 +169,15 @@ main (int argc, char **argv)
       }
 
     if (widescreen)
-      modes = g_list_prepend (modes, mi);
+      modes_w = g_list_prepend (modes_w, mi);
+    else
+      modes_n = g_list_prepend (modes_n, mi);
   }
+
+  if (modes_w)
+    modes = modes_w;
+  else
+    modes = modes_n;
 
   if (!modes)
     {
@@ -219,7 +228,8 @@ main (int argc, char **argv)
   if (screen_res)
     XRRFreeScreenResources (screen_res);
 
-  g_list_free (modes);
+  g_list_free (modes_w);
+  g_list_free (modes_n);
 
   XCloseDisplay (xdpy);
 
