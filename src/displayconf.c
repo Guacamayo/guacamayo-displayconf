@@ -136,7 +136,7 @@ main (int argc, char **argv)
        */
       for (j = 0; j < output->nmode; ++j)
         {
-          if (output->modes[i] == mi->id)
+          if (output->modes[j] == mi->id)
             {
               valid = TRUE;
               break;
