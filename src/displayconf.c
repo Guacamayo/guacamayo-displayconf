@@ -35,7 +35,10 @@ size_sorter (gconstpointer a, gconstpointer b)
 {
   const XRRModeInfo *m_a = a, *m_b = b;
 
-  return (m_b->height - 720) < (m_a->height - 720);
+  /*
+   * Sorting in reverse order, from tallest to shortest
+   */
+  return m_b->height - m_a->height;
 }
 
 /*
